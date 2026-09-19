@@ -6,11 +6,13 @@ import {
   type ReactNode,
 } from "react";
 import * as authApi from "./api";
+import { ApiError } from "@/lib/api";
 import type { User } from "./types";
 
 const TOKEN_KEY = "flowsync_token";
 
-type AuthStatus = "idle" | "loading" | "authenticated" | "unauthenticated";
+type AuthStatus =
+  "idle" | "loading" | "authenticated" | "unauthenticated" | "error";
 
 type AuthContextValue = {
   user: User | null;
@@ -48,9 +50,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(data);
         setStatus("authenticated");
       })
-      .catch(() => {
-        localStorage.removeItem(TOKEN_KEY);
-        setStatus("unauthenticated");
+      .catch((error) => {
+        // Only a real 401 (invalid/revoked token) should log the user out.
+        // A network failure or a backend outage must not discard a token
+        // that may still be perfectly valid.
+        if (error instanceof ApiError && error.status === 401) {
+          localStorage.removeItem(TOKEN_KEY);
+          setStatus("unauthenticated");
+        } else {
+          setStatus("error");
+        }
       });
   }, []);
 
