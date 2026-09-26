@@ -127,6 +127,8 @@ Organización de `src/`:
 La URL de la API sale de `VITE_API_URL` (ver `frontend/.env.example`); por defecto `http://localhost:3333`.
 
 ## Reglas de proceso
+- Al empezar una sesión: leer `docs/ESTADO.md` antes que nada. Es el estado global del trabajo de producto: dónde vive cada artefacto (PRD, historias, tickets), qué claves de Jira les corresponden, qué falta por decidir y cuáles son los siguientes pasos.
+- Al terminar cualquier tarea que cree o cambie algo en `docs/` o en el tablero de Jira: actualizar `docs/ESTADO.md` (fecha, mapa de artefactos, estado por épica, claves de Jira, pendientes y siguientes pasos) antes del commit. Lo que solo quede en la conversación se pierde.
 - Antes de tocar código: crear una rama nueva (`git checkout -b feat/<slug>`). Nunca commitear directo en `main`/`s1/start`.
 - Al cerrar la tarea: usar la skill `/commit`, luego `gh pr create` con una descripción completa de los cambios en el cuerpo del PR.
 - Después de abrir el PR: usar el subagente `adversarial-reviewer` sobre él, antes de darlo por terminado.
