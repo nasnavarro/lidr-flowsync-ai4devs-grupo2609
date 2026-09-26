@@ -79,6 +79,8 @@ CUANDO recargo la lista,
 ENTONCES esa tarea aparece en mi vista.
 
 **CA-14. Qué pasa con el filtro al recargar o volver a entrar** [PROPUESTO]
-DADO que tenía la lista filtrada por un estado,
-CUANDO recargo la página o vuelvo a entrar en la lista,
-ENTONCES se vuelven a ver todas las tareas, como indica CA-4.
+DADO que tengo la lista filtrada por un estado,
+CUANDO recargo la página o abro un enlace a esa vista,
+ENTONCES sigo viendo la lista filtrada por ese mismo estado;
+y CUANDO vuelvo a entrar en la lista sin usar ese enlace,
+ENTONCES veo todas las tareas, como indica CA-4.
