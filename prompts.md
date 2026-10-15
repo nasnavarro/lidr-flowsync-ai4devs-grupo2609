@@ -581,3 +581,14 @@ Haz el git add
 ```
 
 **Qué salió:** Commit 86b1d97 «docs: estado global del trabajo de producto e historias de E2». Luego vio que ESTADO.md seguía diciendo «sin commitear» y lo arregló con --amend (no había push).
+
+## Prompt 35
+
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+
+```
+/commit
+```
+
+**Qué salió:** _(completar)_
