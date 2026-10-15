@@ -1,4 +1,11 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx shadcn@latest init --help)",
+      "Bash(git status *)"
+    ]
+  },
   "hooks": {
     "UserPromptSubmit": [
       {
