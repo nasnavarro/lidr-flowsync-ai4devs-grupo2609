@@ -5,9 +5,13 @@ import UserTransformer from '#transformers/user_transformer'
 
 export default class AccessTokensController {
   async store({ request, serialize }: HttpContext) {
-    const { email, password } = await request.validateUsing(loginValidator)
+    const { nif, password } = await request.validateUsing(loginValidator)
 
-    const user = await User.verifyCredentials(email, password)
+    const user = await User.verifyCredentials(nif, password)
+
+    // Only one active session per user: logging in elsewhere invalidates
+    // any previously issued token.
+    await User.accessTokens.deleteAll(user)
     const token = await User.accessTokens.create(user)
 
     return serialize({

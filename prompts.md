@@ -22,14 +22,33 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Sonnet 5
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Quiero que leas el jira FLOW-1 y que lo resuelvas dentro de este proyecto.
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** Me dice que la cuenta de jira conectada no tiene esos tickets. Ha cogido mi cuenta de empresa en lugar de la que creé.
+
+## Prompt 2
+
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+
+```
+Te paso el titulo y descripción del jira directamente para que generes el plan: Crear en el frontend login y registro de usuario - Necesito crear un login donde el username sea el nif y la contraseña de al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial. Que no permita que un usuario esté logueado 2 veces en distintas sesiones. Que pueda regenerar la contraseña.
+```
+
+**Qué salió:** Me ha generado un plan
+
+## Prompt 3
+
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+
+```
+Guárdame el plan del proyecto que has creado en un archivo md para revisarlo tranquilamente
+```
+
+**Qué salió:** Me ha generado el archivo en docs/plan-flow-1-sin-harness.md
